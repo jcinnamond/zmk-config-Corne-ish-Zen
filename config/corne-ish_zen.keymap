@@ -18,6 +18,18 @@
 #define FUN 6
 
 / {
+        behaviors {
+                bhm: balanced_homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        flavor = "balanced";
+                        bindings = <&kp>, <&kp>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -30,7 +42,7 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
-   &mt LGUI ESC &kp A &mt LALT R &mt LCTRL S &mt LSHIFT T &kp G   &kp M &mt RSHIFT N  &mt RCTRL E &mt RALT I &kp O    &mt RGUI EQUAL
+   &bhm LGUI ESC &kp A &bhm LALT R &bhm LCTRL S &bhm LSHIFT T &kp G   &kp M &bhm RSHIFT N  &bhm RCTRL E &bhm RALT I &kp O    &bhm RGUI EQUAL
    &kp ASTRK    &kp Z &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &kp AMPS
                   &lt MEDIA ESC &lt NAV SPACE &lt BT TAB                         &lt SYM RET &lt NUM BSPC &lt FUN DEL
                         >;
@@ -74,9 +86,9 @@
                 sym_layer {
                         label = "symbol";
                         bindings = <
-    &none        &kp LBRC &kp AMPS &kp ASTRK &kp LPAR &kp RBRC    &none &none      &none     &none    &none &none
-    &mt LGUI ESC &kp COLON &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS   &none &kp RSHIFT &kp RCTRL &kp LALT &none &kp RGUI
-    &none        &kp TILDE &kp EXCL &kp AT &kp HASH &kp PIPE    &none &none      &none     &none    &none &none
+    &kp NON_US_HASH &kp LBRC  &kp AMPS &kp ASTRK &kp LPAR &kp RBRC    &none &none      &none     &none    &none &none
+    &mt LGUI ESC    &kp COLON &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS   &none &kp RSHIFT &kp RCTRL &kp LALT &none &kp RGUI
+    &none           &kp TILDE &kp EXCL &kp AT &kp HASH &kp PIPE    &none &none      &none     &none    &none &none
                                 &kp LPAR &kp RPAR &kp UNDER                  &trans &none &none
                         >;
                 };
