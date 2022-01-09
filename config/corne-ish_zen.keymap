@@ -44,7 +44,7 @@
    &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
    &bhm LGUI ESC &kp A &bhm LALT R &bhm LCTRL S &bhm LSHIFT T &kp G   &kp M &bhm RSHIFT N  &bhm RCTRL E &bhm LALT I &kp O    &bhm LGUI EQUAL
    &kp ASTRK    &kp Z &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &kp AMPS
-                  &lt MEDIA ESC &bhm NAV SPACE &lt BT TAB                         &lt SYM RET &lt NUM BSPC &lt FUN DEL
+                  &lt 1 ESC &lt NAV SPACE &lt BT TAB                         &lt SYM RET &lt NUM BSPC &lt FUN DEL
                         >;
                 };
                 media_layer {
