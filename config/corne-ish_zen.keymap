@@ -10,9 +10,12 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define BASE 0
-#define NAV 1
-#define NUM 2
+#define MEDIA 1
+#define NAV 2
 #define BT 3
+#define NUM 4
+#define SYM 5
+#define FUN 6
 
 / {
         keymap {
@@ -29,7 +32,16 @@
    &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
    &mt LGUI ESC &kp A &mt LALT R &mt LCTRL S &mt LSHIFT T &kp G   &kp M &mt RSHIFT N  &mt RCTRL E &mt RALT I &kp O    &mt RGUI EQUAL
    &kp ASTRK    &kp Z &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &kp AMPS
-                  &kp ESC &lt NAV SPACE &kp TAB                         &kp RET &lt NUM BSPC &kp DEL
+                  &lt MEDIA ESC &lt NAV SPACE &lt BT TAB                         &lt SYM RET &lt NUM BSPC &lt FUN DEL
+                        >;
+                };
+                media_layer {
+                        label = "media";
+                        bindings = <
+    &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
+    &mt LGUI ESC &none &kp LALT &kp LCTRL &kp LSHIFT &none    &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
+    &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
+                                &trans &none &none                  &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
                         >;
                 };
                 nav_layer {
@@ -41,15 +53,6 @@
                                 &none &trans &none                  &kp RET &kp BSPC &kp DEL
                         >;
                 };
-                num_layer {
-                        label = "number";
-                        bindings = <
-    &none        &kp LBKT &kp N7 &kp N8 &kp N9 &kp RBKT    &none &none      &none     &none    &none &none
-    &mt LGUI ESC &kp SEMI &kp N4 &kp N5 &kp N6 &kp EQUAL   &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt RGUI EQUAL
-    &none        &kp GRAV &kp N1 &kp N2 &kp N3 &kp BSLH    &none &none      &none     &none    &none &none
-                                &kp DOT &kp N0 &kp MINUS                  &none &trans &none
-                        >;
-                };
                 bt_layer {
                         label = "bluetooth";
                         bindings = <
@@ -59,33 +62,31 @@
                         &trans &none &none        &none &none &none
                         >;
                 };
-                number_layer {
-                        label = "NUMBER";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                num_layer {
+                        label = "number";
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+    &none        &kp LBKT &kp N7 &kp N8 &kp N9 &kp RBKT    &none &none      &none     &none    &none &none
+    &mt LGUI ESC &kp SEMI &kp N4 &kp N5 &kp N6 &kp EQUAL   &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt RGUI EQUAL
+    &none        &kp GRAV &kp N1 &kp N2 &kp N3 &kp BSLH    &none &none      &none     &none    &none &none
+                                &kp DOT &kp N0 &kp MINUS                  &none &trans &none
                         >;
                 };
-
-                raise_layer {
-                        label = "SYMBOL";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                sym_layer {
+                        label = "symbol";
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &reset    &kp RALT
+    &none        &kp LBRC &kp AMPS &kp ASTRK &kp LPAR &kp RBRC    &none &none      &none     &none    &none &none
+    &mt LGUI ESC &kp COLON &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS   &none &kp RSHIFT &kp RCTRL &kp LALT &none &kp RGUI
+    &none        &kp TILDE &kp EXCL &kp AT &kp HASH &kp PIPE    &none &none      &none     &none    &none &none
+                                &kp LPAR &kp RPAR &kp UNDER                  &trans &none &none
+                        >;
+                };
+                fun_layer {
+                        label = "f";
+                        bindings = <
+    &none        &kp F12 &kp F7 &kp F8 &kp F9 &none    &none &none      &none     &none    &none &none
+    &mt LGUI ESC &kp F11 &kp F4 &kp F5 &kp F6 &none   &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt RGUI EQUAL
+    &none        &kp F10 &kp F1 &kp F2 &kp F3 &none    &none &none      &none     &none    &none &none
+                                &kp RGUI &kp SPACE &kp TAB                  &none &trans &none
                         >;
                 };
         };
