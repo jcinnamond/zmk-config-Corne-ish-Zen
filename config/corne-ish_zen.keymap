@@ -40,13 +40,13 @@
                         hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
                 };
                 smod: special_mods {
-                        compatible = "zmk,behavior-layer-tap";
+                        compatible = "zmk,behavior-hold-tap";
                         label = "SPECIAL_MOD";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <50>;
-                        bindings = <&kp>, <&kp>;
-                        flavor = "balanced";
+                        quick-tap-ms = <180>;
+                        bindings = <&mo>, <&kp>;
+                        flavor = "tap-preferred";
                 };
                 hmod: heavy_mods {
                         compatible = "zmk,behavior-hold-tap";
@@ -73,7 +73,7 @@
    &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
    &hmod LGUI ESC &kp A &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm LSHIFT T &kp G   &kp M &rh_hrm RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
    &kp ASTRK    &kp Z &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &kp AMPS
-                  &lt MEDIA ESC &lt NAV SPACE &lt BT TAB                         &lt SYM RET &lt NUM BSPC &lt FUN DEL
+                  &smod MEDIA ESC &smod NAV SPACE &smod BT TAB                         &smod SYM RET &smod NUM BSPC &smod FUN DEL
                         >;
                 };
                 media_layer {
@@ -82,7 +82,7 @@
     &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
     &mt LGUI ESC &none &kp LALT &kp LCTRL &kp LSHIFT &none    &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
     &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
-                                &trans &none &none                  &kp C_STOP &kp C_PLAY_PAUSE &kp K_MUTE
+                                &trans &none &none                  &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
                         >;
                 };
                 nav_layer {
