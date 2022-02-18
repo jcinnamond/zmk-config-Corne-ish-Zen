@@ -102,7 +102,7 @@
                         label = "bluetooth";
                         bindings = <
     &none &none &none &none &none &none    &none      &none        &none        &none        &none        &none
-    &none &none &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR &none    &kp MINUS &kp GT &kp AT &kp COLON &kp EQUAL
+    &none &none &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR &none    &kp LT &kp MINUS &kp GT &kp COLON &kp EQUAL
     &none &none &none &none &none &none    &none      &none        &none        &none        &none        &reset
                         &trans &none &none        &none &none &none
                         >;
