@@ -27,6 +27,16 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "LEFT_HAND_HOME_ROW_MOD";
                         #binding-cells = <2>;
+                        tapping-term-ms = <220>;
+                        quick-tap-ms = <0>;
+                        bindings = <&kp>, <&kp>;
+                        flavor = "tap-preferred";
+                        hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+                };
+                lh_hrm_light: left_hand_home_row_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "LEFT_HAND_HOME_ROW_MOD_LIGHT";
+                        #binding-cells = <2>;
                         tapping-term-ms = <200>;
                         quick-tap-ms = <0>;
                         bindings = <&kp>, <&kp>;
@@ -36,6 +46,16 @@
                 rh_hrm: right_hand_home_row_mods {
                         compatible = "zmk,behavior-hold-tap";
                         label = "RIGHT_HAND_HOME_ROW_MOD";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <220>;
+                        quick-tap-ms = <0>;
+                        bindings = <&kp>, <&kp>;
+                        flavor = "tap-preferred";
+                        hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+                };
+                rh_hrm_light: right_hand_home_row_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "RIGHT_HAND_HOME_ROW_MOD_RIGHT";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
                         quick-tap-ms = <0>;
@@ -75,7 +95,7 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
-   &hmod LGUI ESC &kp A &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm LSHIFT T &kp G   &kp M &rh_hrm RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
+   &hmod LGUI ESC &kp A &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G   &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
    &hmod RALT ASTRK    &kp Z &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &hmod LA(LC(LGUI)) AMPS
                   &smod MEDIA UNDERSCORE &smod NAV SPACE &smod BT TAB                         &smod SYM RET &smod NUM BSPC &smod FUN COLON
                         >;
