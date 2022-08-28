@@ -29,6 +29,17 @@
 };
 
 / {
+    macros {        
+        l2_ctrl: l2_ctrl {
+            label = "l2 ctrl";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to TINY_ALPHA_2 &sk LCTRL>
+                ;
+        };
+    };
+    
     combos {        
         compatible = "zmk,combos"; 
         combo_z {            
@@ -37,12 +48,18 @@
             layers = <0>;
             bindings = <&kp Z>;
         };
+        layer_reset {
+            timeout-ms = <50>;
+            key-positions = <35 38>;
+            bindings = <&to TINY_ALPHA_1>;
+        };        
         combo_esc {
             timeout-ms = <50>;
             key-positions = <8 9>;
             bindings = <&kp ESC>;
         };
     };
+
     behaviors {
         td_a: tap_dance_a {
             compatible = "zmk,behavior-tap-dance";
@@ -248,7 +265,7 @@
     &to BASE &none     &kp H &kp O &kp U &none         &none &kp C &kp M &kp R &none   &none
     &none    &kp F     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &none
     &none    &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
-            &none &lt TINY_NAV SPACE &sk LCTRL         &kp RETURN &sl TINY_ALPHA_2 &none
+            &none &smod TINY_NAV SPACE &sk LCTRL       &kp RETURN &sl TINY_ALPHA_2 &none
             >;
         };
 
@@ -258,7 +275,7 @@
     &to BASE &none     &kp Q &kp J &kp K &none         &none &kp V &kp X &kp Z &none    &none
     &none    &kp LPAR  &kp W &kp Y &kp G &none         &none &kp D &kp L &kp B &kp RPAR &none
     &none    &none     &none &none &none &none         &none &none &none &none &none    &none
-     &none &lt TINY_NAV SPACE &to TINY_ALPHA_1         &kp TAB &to TINY_NUM &none
+           &none &smod TINY_NAV SPACE &l2_ctrl         &kp TAB &to TINY_NUM &none
             >;
         };
 
@@ -268,7 +285,7 @@
     &to BASE &none     &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
     &none    &kp ASTRK &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp PLUS  &none
     &none    &kp FSLH  &none  &none  &none  &none         &none &none   &none     &none  &kp MINUS &none
-                  &none &to TINY_ALPHA_1 &sk LCTRL        &none &kp N0 &none
+              &none &smod TINY_NAV SPACE &sk LCTRL        &none &kp N0 &none
             >;
         };
 
