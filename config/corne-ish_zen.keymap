@@ -35,7 +35,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &to TINY_ALPHA_2 &sk LCTRL>
+                = <&to TINY_ALPHA_2 &sk LCTRL>
                 ;
         };
     };
@@ -50,7 +50,7 @@
         };
         layer_reset {
             timeout-ms = <50>;
-            key-positions = <35 38>;
+            key-positions = <37 40>;
             bindings = <&to TINY_ALPHA_1>;
         };        
         combo_esc {
@@ -94,7 +94,7 @@
             label = "TAP_DANCE_T";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT T>, <&kp LS(T)>;
+            bindings = <&mt LALT T>, <&kp LS(T)>, <&kp T>;
         };
         td_n: tap_dance_n {
             compatible = "zmk,behavior-tap-dance";
