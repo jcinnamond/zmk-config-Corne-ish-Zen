@@ -215,10 +215,10 @@
         nav_layer {
             label = "nav";
             bindings = <
-    &none        &none &none    &none     &none      &none    &kp INS &kp K_PASTE &kp UP     &kp K_CUT   &kp K_UNDO &none
-    &mt LGUI ESC &none &kp LALT &kp LCTRL &kp LSHIFT &none    &none   &kp LEFT    &kp DOWN   &kp RIGHT   &kp BSPC   &none
-    &none        &none &none    &none     &none      &none    &caps_word   &kp HOME    &kp PG_DN  &kp PG_UP   &kp END    &none
-                                &none &trans &none                  &kp RET &kp BSPC &kp DEL
+    &none &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none    &none
+    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &kp BSPC &none
+    &none &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL  &none
+                                  &none &none &none         &kp INS &caps_word &none
             >;
         };
         bt_layer {
