@@ -66,7 +66,7 @@
             label = "TAP_DANCE_A";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LGUI A>, <&kp LS(A)>;
+            bindings = <&kp A>, <&kp LS(A)>;
         };
         td_e: tap_dance_e {
             compatible = "zmk,behavior-tap-dance";
@@ -87,14 +87,14 @@
             label = "TAP_DANCE_S";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LGUI S>, <&kp LS(S)>;
+            bindings = <&kp S>, <&kp LS(S)>;
         };
         td_t: tap_dance_t {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_T";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT T>, <&kp LS(T)>, <&kp T>;
+            bindings = <&mt LALT T>, <&kp LS(T)>;
         };
         td_n: tap_dance_n {
             compatible = "zmk,behavior-tap-dance";
@@ -123,6 +123,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp DOT>, <&kp COMMA>;
+        };
+
+        td_quote: tap_dance_quote {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_QUOTE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LGUI SQT>, <&kp AT>;
         };
 
         
@@ -197,10 +205,10 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
             bindings = <
-   &kp LPAR     &kp Q &kp W      &kp F       &kp P        &kp B   &kp J &kp L         &kp U       &kp Y      &kp SQT  &kp RPAR
-   &hmod LGUI ESC &kp A &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G   &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
-   &hmod RALT ASTRK &kp AT &kp X      &kp C       &kp D        &kp V   &kp K &kp H         &kp COMMA   &kp DOT    &kp FSLH &hmod LA(LC(LGUI)) AMPS
-                  &smod MEDIA UNDERSCORE &smod NAV SPACE &smod BT TAB                         &smod SYM RET &smod NUM BSPC &smod FUN COLON
+   &kp LPAR         &kp Q  &kp W          &kp F           &kp P                  &kp B     &kp J &kp L                   &kp U           &kp Y          &kp SQT  &kp RPAR
+   &hmod LGUI ESC   &kp A  &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G     &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
+   &hmod RALT ASTRK &kp AT &kp X          &kp C           &kp D                  &kp V     &kp K &kp H                   &kp COMMA       &kp DOT        &kp FSLH &hmod LA(LC(LGUI)) AMPS
+                                   &smod MEDIA UNDERSCORE &smod NAV SPACE &smod BT TAB     &smod SYM RET &smod NUM BSPC &smod FUN COLON
             >;
         };
         media_layer {
@@ -209,7 +217,7 @@
     &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
     &mt LGUI ESC &none &kp LALT &kp LCTRL &kp LSHIFT &none    &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
     &none        &none &none    &none     &none      &none    &none &none      &none        &none        &none       &none
-                                &trans &none &none                  &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
+                                        &trans &none &none    &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
             >;
         };
         nav_layer {
@@ -262,9 +270,9 @@
         tiny_alpha_1 {
             label = "alpha 1";
             bindings = <
-    &to BASE &none     &kp H &kp O &kp U &none         &none &kp C &kp M &kp R &none   &none
-    &none    &kp F     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &none
-    &none    &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
+    &to BASE  &none     &kp H &kp O &kp U &none         &none &kp C &kp M &kp R &none   &none
+    &td_quote &kp F     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &key_repeat
+    &none     &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
             &none &smod TINY_NAV SPACE &sk LCTRL       &kp RETURN &sl TINY_ALPHA_2 &none
             >;
         };
