@@ -133,6 +133,14 @@
             bindings = <&mt LGUI SQT>, <&kp AT>;
         };
 
+        td_delete: tap_dance_delete {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_DELETE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp BKSP>, <&kp LA(BKSP)>;
+        };
+
         
         lh_hrm: left_hand_home_row_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -223,9 +231,9 @@
         nav_layer {
             label = "nav";
             bindings = <
-    &none &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none    &none
-    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &kp BSPC &none
-    &none &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL  &none
+    &none &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
+    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_delete &none
+    &none &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
                                   &none &none &none         &kp INS &caps_word &none
             >;
         };
@@ -310,9 +318,9 @@
         tiny_nav {
             label = "nav";
             bindings = <
-    &to BASE &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none    &none
-    &none    &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &kp BSPC &none
-    &none    &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL  &none
+    &to BASE &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
+    &none    &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_delete &none
+    &none    &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
                                     &none &none &none          &caps_word &none &none
             >;
         };
