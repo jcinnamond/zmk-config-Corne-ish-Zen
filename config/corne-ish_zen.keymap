@@ -29,17 +29,6 @@
 };
 
 / {
-    macros {        
-        l2_ctrl: l2_ctrl {
-            label = "l2 ctrl";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&to TINY_ALPHA_2 &sk LCTRL>
-                ;
-        };
-    };
-    
     combos {        
         compatible = "zmk,combos"; 
         combo_z {            
@@ -57,6 +46,16 @@
             timeout-ms = <50>;
             key-positions = <8 9>;
             bindings = <&kp ESC>;
+        };
+        combo_ctrl {
+            timeout-ms = <50>;
+            key-positions = <19 20 21>;
+            bindings = <&sk LCTRL>;
+        };
+        combo_alt {
+            timeout-ms = <50>;
+            key-positions = <14 15 16>;
+            bindings = <&sk LALT>;
         };
     };
 
@@ -139,6 +138,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp BKSP>, <&kp LA(BKSP)>;
+        };
+
+        td_to_sym: tap_dance_to_sym {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_TO_SYM";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl TINY_SYM>, <&to TINY_SYM>;
         };
 
         
@@ -278,10 +285,10 @@
         tiny_alpha_1 {
             label = "alpha 1";
             bindings = <
-    &to BASE  &none     &kp H &kp O &kp U &none         &none &kp C &kp M &kp R &none   &none
-    &td_quote &kp F     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &key_repeat
+    &to BASE  &none     &kp H &kp F &kp U &none         &none &kp C &kp M &kp R &none   &none
+    &td_quote &kp O     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &key_repeat
     &none     &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
-            &none &smod TINY_NAV SPACE &sk LCTRL       &kp RETURN &sl TINY_ALPHA_2 &none
+         &none &smod TINY_NAV SPACE &td_to_sym         &kp RETURN &sl TINY_ALPHA_2 &none
             >;
         };
 
@@ -291,7 +298,7 @@
     &to BASE &none     &kp Q &kp J &kp K &none         &none &kp V &kp X &kp Z &none    &none
     &none    &kp LPAR  &kp W &kp Y &kp G &none         &none &kp D &kp L &kp B &kp RPAR &none
     &none    &none     &none &none &none &none         &none &none &none &none &none    &none
-           &none &smod TINY_NAV SPACE &l2_ctrl         &kp TAB &to TINY_NUM &none
+         &none &smod TINY_NAV SPACE &td_to_sym         &kp TAB &to TINY_NUM &none
             >;
         };
 
@@ -308,10 +315,10 @@
         tiny_sym {
             label = "sym";
             bindings = <
-    &to BASE &none     &kp Q &kp J &kp K &none         &none &kp V &kp X &kp Z &none    &none
-    &none    &kp LPAR  &kp W &kp Y &kp G &none         &none &kp D &kp L &kp B &kp RPAR &none
-    &none    &none     &none &none &none &none         &none &none &none &none &none    &none
-              &none &to TINY_ALPHA_1 &kp LCTRL         &kp TAB &none &none
+    &to BASE &none    &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp GRAV &none    &none
+    &none    &kp LPAR &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT   &kp RPAR &none
+    &none    &none    &none    &none       &none           &none         &none &none &none &none &none    &none
+                           &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
             >;
         };
 
