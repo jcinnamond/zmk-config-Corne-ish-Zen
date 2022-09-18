@@ -57,9 +57,14 @@
             key-positions = <14 15 16>;
             bindings = <&sk LALT>;
         };
+        combo_shift { 
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&sk LSHIFT>;
+        };
         combo_super { 
             timeout-ms = <50>;
-            key-positions = <4 5>;
+            key-positions = <12 23>;
             bindings = <&sk LGUI>;
         };
     };
@@ -71,6 +76,13 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp A>, <&kp LS(A)>;
+        };
+        td_c: tap_dance_c {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_C";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp C>, <&kp LS(C)>;
         };
         td_e: tap_dance_e {
             compatible = "zmk,behavior-tap-dance";
@@ -135,6 +147,20 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mt LGUI SQT>, <&kp AT>;
+        };
+        td_lpar: tap_dance_lpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LPAREN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LPAR>, <&kp LBRC>;
+        };
+        td_rpar: tap_dance_rpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_RPAREN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RPAR>, <&kp RBRC>;
         };
 
         td_delete: tap_dance_delete {
@@ -290,7 +316,7 @@
         tiny_alpha_1 {
             label = "alpha 1";
             bindings = <
-    &to BASE  &none     &kp H &kp F &kp U &none         &none &kp C &kp M &kp R &none   &none
+    &to BASE  &none     &kp H &kp F &kp U &none         &none &td_c &kp M &kp R &none   &none
     &td_quote &kp O     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &key_repeat
     &none     &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
          &none &smod TINY_NAV SPACE &td_to_sym         &kp RETURN &sl TINY_ALPHA_2 &none
@@ -301,7 +327,7 @@
             label = "alpha 2";
             bindings = <
     &to BASE &none     &kp Q &kp J &kp K &none         &none &kp V &kp X &kp Z &none    &none
-    &none    &kp LPAR  &kp W &kp Y &kp G &none         &none &kp D &kp L &kp B &kp RPAR &none
+    &none    &td_lpar  &kp W &kp Y &kp G &none         &none &kp D &kp L &kp B &kp RPAR &none
     &none    &none     &none &none &none &none         &none &none &none &none &none    &none
          &none &smod TINY_NAV SPACE &td_to_sym         &kp TAB &to TINY_NUM &none
             >;
@@ -320,10 +346,10 @@
         tiny_sym {
             label = "sym";
             bindings = <
-    &to BASE &none    &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp GRAV &none    &none
-    &none    &kp LPAR &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT   &kp RPAR &none
-    &none    &none    &none    &none       &none           &none         &none &none &none &none &none    &none
-                           &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
+    &to BASE &none           &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp GRAV &none    &none
+    &none    &kp LBKT        &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT   &kp RBKT &none
+    &none    &kp NON_US_BSLH &none    &none       &none           &none         &none &none    &none      &none    &kp FSLH &none
+                                  &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
             >;
         };
 
@@ -333,7 +359,7 @@
     &to BASE &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
     &none    &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_delete &none
     &none    &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
-                                    &none &none &none          &caps_word &none &none
+                                    &none &none &none          &none &caps_word &none
             >;
         };
     };
