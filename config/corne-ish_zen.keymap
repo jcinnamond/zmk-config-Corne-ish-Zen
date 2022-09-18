@@ -57,6 +57,11 @@
             key-positions = <14 15 16>;
             bindings = <&sk LALT>;
         };
+        combo_super { 
+            timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&sk LGUI>;
+        };
     };
 
     behaviors {
@@ -72,7 +77,7 @@
             label = "TAP_DANCE_E";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT E>, <&kp LS(E)>;
+            bindings = <&kp E>, <&kp LS(E)>;
         };
         td_i: tap_dance_i {
             compatible = "zmk,behavior-tap-dance";
@@ -93,7 +98,7 @@
             label = "TAP_DANCE_T";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT T>, <&kp LS(T)>;
+            bindings = <&kp T>, <&kp LS(T)>;
         };
         td_n: tap_dance_n {
             compatible = "zmk,behavior-tap-dance";
@@ -109,6 +114,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&kp LS(P)>;
         };
+
         td_colon: tap_dance_colon {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_COLON";
@@ -123,7 +129,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp DOT>, <&kp COMMA>;
         };
-
         td_quote: tap_dance_quote {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_QUOTE";
