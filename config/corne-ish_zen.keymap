@@ -254,7 +254,7 @@
    &kp LPAR         &kp Q  &kp W          &kp F           &kp P                  &kp B     &kp J &kp L                   &kp U           &kp Y          &kp SQT  &kp RPAR
    &hmod LGUI ESC   &kp A  &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G     &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
    &hmod RALT ASTRK &kp AT &kp X          &kp C           &kp D                  &kp V     &kp K &kp H                   &kp COMMA       &kp DOT        &kp FSLH &hmod LA(LC(LGUI)) AMPS
-                                   &smod MEDIA UNDERSCORE &smod NAV SPACE &smod BT TAB     &smod SYM RET &smod NUM BSPC &smod FUN COLON
+                                   &smod MEDIA UNDERSCORE &smod TINY_NAV SPACE &smod BT TAB     &smod SYM RET &smod NUM BSPC &smod FUN COLON
             >;
         };
         media_layer {
