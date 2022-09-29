@@ -49,12 +49,12 @@
         };
         combo_ctrl {
             timeout-ms = <50>;
-            key-positions = <19 20 21>;
+            key-positions = <14 15 16>;
             bindings = <&sk LCTRL>;
         };
         combo_alt {
             timeout-ms = <50>;
-            key-positions = <14 15 16>;
+            key-positions = <19 20 21>;
             bindings = <&sk LALT>;
         };
         combo_shift { 
@@ -163,12 +163,12 @@
             bindings = <&kp RPAR>, <&kp RBRC>;
         };
 
-        td_delete: tap_dance_delete {
+        td_del: tap_dance_delete {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_DELETE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp BKSP>, <&kp LA(BKSP)>;
+            bindings = <&kp DEL>, <&kp LA(BKSP)>;
         };
 
         td_to_sym: tap_dance_to_sym {
@@ -270,7 +270,7 @@
             label = "nav";
             bindings = <
     &none &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
-    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_delete &none
+    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_del &none
     &none &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
                                   &none &none &none         &kp INS &caps_word &none
             >;
@@ -356,10 +356,10 @@
         tiny_nav {
             label = "nav";
             bindings = <
-    &to BASE &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
-    &none    &kp LG(SPACE)     &kp LA(TAB) &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_delete &none
-    &none    &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
-                                    &none &none &none          &none &caps_word &none
+    &to BASE &none         &none       &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none    &none
+    &none    &kp LG(SPACE) &kp LA(TAB) &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &kp BKSP &none
+    &none    &none         &none       &none     &none     &none         &none &none    &none    &none     &td_del  &none
+                                               &none &none &none         &none &caps_word &none
             >;
         };
         
