@@ -52,10 +52,20 @@
             key-positions = <14 15 16>;
             bindings = <&sk LCTRL>;
         };
+        combo_ctrl_shift {
+            timeout-ms = <50>;
+            key-positions = <13 14 15 16>;
+            bindings = <&sk LS(LCTRL)>;
+        };
         combo_alt {
             timeout-ms = <50>;
             key-positions = <19 20 21>;
             bindings = <&sk LALT>;
+        };
+        combo_alt_ctrl {
+            timeout-ms = <50>;
+            key-positions = <19 20 21 22>;
+            bindings = <&sk LC(LALT)>;
         };
         combo_shift { 
             timeout-ms = <50>;
@@ -379,9 +389,9 @@
             label = "num";
             bindings = <
     &to BASE &none     &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
-    &none    &kp ASTRK &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp PLUS  &none
-    &none    &kp FSLH  &none  &none  &none  &none         &none &none   &none     &none  &kp MINUS &none
-              &none &smod TINY_NAV SPACE &sk LCTRL        &none &kp N0 &none
+    &none    &kp ASTRK &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp MINUS &none
+    &none    &kp FSLH  &none  &none  &none  &none         &none &none   &none     &none  &kp PLUS  &none
+              &none &smod TINY_NAV SPACE &sk LCTRL        &kp RETURN &kp N0 &none
             >;
         };
 
