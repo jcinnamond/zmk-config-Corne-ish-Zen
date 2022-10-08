@@ -388,10 +388,10 @@
         tiny_num {
             label = "num";
             bindings = <
-    &to BASE &none     &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
-    &none    &kp ASTRK &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp MINUS &none
-    &none    &kp FSLH  &none  &none  &none  &none         &none &none   &none     &none  &kp PLUS  &none
-              &none &smod TINY_NAV SPACE &sk LCTRL        &kp RETURN &kp N0 &none
+    &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
+    &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp MINUS &none
+    &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &none  &kp PLUS  &none
+              &none &smod TINY_NAV SPACE &sk LCTRL        &none &kp N0 &none
             >;
         };
 
