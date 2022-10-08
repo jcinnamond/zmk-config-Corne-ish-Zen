@@ -365,6 +365,15 @@
             bindings = <&mo>, <&kp>;
             flavor = "tap-preferred";
         };
+        smod_light: special_mods_light {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPECIAL_MOD_LIGHT";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <180>;
+            bindings = <&mo>, <&kp>;
+            flavor = "tap-preferred";
+        };
         hmod: heavy_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HEAVY_MOD";
@@ -455,7 +464,7 @@
     &to BASE  &none     &td_h &td_f &td_u &none         &none &td_c &td_m &td_r &none   &none
     &td_quote &td_o     &td_i &td_e &td_a &none         &none &td_s &td_t &td_n &td_p   &key_repeat
     &none     &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
-          &none &smod TINY_NAV SPACE &td_to_sym         &smod TINY_NUM RETURN &sl TINY_ALPHA_2 &none
+    &none &smod_light TINY_NAV SPACE &td_to_sym         &smod TINY_NUM RETURN &sl TINY_ALPHA_2 &none
             >;
         };
 
@@ -465,7 +474,7 @@
     &to BASE &none     &td_q &td_j &td_k &none         &none &td_v &td_x &td_z &none    &none
     &kp GRAV &td_lpar  &td_w &td_y &td_g &none         &none &td_d &td_l &td_b &td_rpar &none
     &none    &kp LBKT  &none &none &none &none         &none &none &none &none &kp RBKT &none
-        &none &smod TINY_NAV SPACE &sl TINY_FN         &kp TAB &to TINY_NUM &none
+  &none &smod_light TINY_NAV SPACE &sl TINY_FN         &kp TAB &to TINY_NUM &none
             >;
         };
 
@@ -475,7 +484,7 @@
     &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
     &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp MINUS &none
     &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &none  &kp PLUS  &none
-              &none &smod TINY_NAV SPACE &sk LCTRL        &none &kp N0 &none
+       &none &smod_light TINY_NAV SPACE &sk LCTRL         &none &kp N0 &none
             >;
         };
 
@@ -503,9 +512,9 @@
             label = "fn";
             bindings = <
     &none &none &kp F5  &kp F8 &none   &none    &none &none      &none     &none    &none &none
-    &none &none &kp F10 &kp F2 &kp F12 &none   &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt GUI EQUAL
+    &none &none &kp F10 &kp F2 &kp F12 &none    &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt GUI EQUAL
     &none &none &none   &none  &none   &none    &none &none      &none     &none    &none &none
-                                &none &smod TINY_NAV SPACE &none                  &none &trans &none
+      &none &smod_light TINY_NAV SPACE &none    &none &trans &none
             >;
         };
     };
