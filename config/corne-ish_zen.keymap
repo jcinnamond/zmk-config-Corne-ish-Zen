@@ -481,9 +481,9 @@
         tiny_num {
             label = "num";
             bindings = <
-    &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &none  &none     &none
-    &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9 &kp MINUS &none
-    &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &none  &kp PLUS  &none
+    &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &kp UNDERSCORE  &none     &none
+    &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9          &kp MINUS &kp COMMA
+    &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &none           &kp PLUS  &none
        &none &smod_light TINY_NAV SPACE &sk LCTRL         &none &kp N0 &none
             >;
         };
@@ -491,9 +491,9 @@
         tiny_sym {
             label = "sym";
             bindings = <
-    &to BASE &none           &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp GRAV &none          &none
-    &kp HASH &kp QUESTION    &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT   &kp UNDERSCORE &kp LS(SQT)
-    &none    &kp NON_US_BSLH &none    &none       &none           &none         &none &none    &none      &none    &kp FSLH       &none
+    &to BASE &none           &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &none          &none
+    &kp HASH &kp QUESTION    &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
+    &none    &kp NON_US_BSLH &none    &none       &none           &none         &none &none    &none      &none     &kp FSLH       &none
                                   &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
             >;
         };
@@ -503,7 +503,7 @@
             bindings = <
     &to BASE &none         &none       &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none    &none
     &none    &kp LG(SPACE) &kp LA(TAB) &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &kp BKSP &none
-    &none    &none         &none       &none     &none     &none         &none &none    &none    &none     &td_del  &none
+    &none    &none         &none       &none     &none     &none         &none &none    &none    &none     &kp DEL  &none
                                                &none &none &none         &none &caps_word &none
             >;
         };
@@ -511,9 +511,9 @@
         tiny_fn {
             label = "fn";
             bindings = <
-    &none &none &kp F5  &kp F8 &none   &none    &none &none      &none     &none    &none &none
-    &none &none &kp F10 &kp F2 &kp F12 &none    &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt GUI EQUAL
-    &none &none &none   &none  &none   &none    &none &none      &none     &none    &none &none
+    &none &none &kp F5  &kp F8 &none   &none    &none &none       &none &none &none &none
+    &none &none &kp F10 &kp F2 &kp F12 &none    &none &kp LC(F12) &none &none &none &none
+    &none &none &none   &none  &none   &none    &none &none       &none &none &none &none
       &none &smod_light TINY_NAV SPACE &none    &none &trans &none
             >;
         };
