@@ -312,7 +312,7 @@
             label = "TAP_DANCE_TO_SYM";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&sl TINY_SYM>, <&to TINY_SYM>;
+            bindings = <&smod TINY_SYM TAB>, <&to TINY_SYM>;
         };
 
         
@@ -399,7 +399,7 @@
    &kp LPAR         &kp Q  &kp W          &kp F           &kp P                  &kp B     &kp J &kp L                   &kp U           &kp Y          &kp SQT  &kp RPAR
    &hmod LGUI ESC   &kp A  &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G     &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
    &hmod RALT ASTRK &kp AT &kp X          &kp C           &kp D                  &kp V     &kp K &kp H                   &kp COMMA       &kp DOT        &kp FSLH &hmod LA(LC(LGUI)) AMPS
-                                   &smod MEDIA UNDERSCORE &smod TINY_NAV SPACE &smod BT TAB     &smod SYM RET &smod NUM BSPC &smod FUN COLON
+                                &smod MEDIA UNDERSCORE &smod TINY_NAV SPACE &td_to_sym     &smod TINY_NUM RET &smod NUM BSPC &smod FUN COLON
             >;
         };
         media_layer {
@@ -491,9 +491,9 @@
         tiny_sym {
             label = "sym";
             bindings = <
-    &to BASE &none           &kp EXCL &kp PERCENT &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &none          &none
-    &kp HASH &kp QUESTION    &kp PIPE &kp EQUAL   &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
-    &none    &kp NON_US_BSLH &none    &none       &none           &none         &none &none    &none      &none     &kp FSLH       &none
+    &to BASE &none           &kp EXCL &kp PERCENT  &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &none          &none
+    &kp HASH &kp QUESTION    &kp PIPE &kp EQUAL    &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
+    &none    &kp NON_US_BSLH &none    &bt BT_SEL 1 &bt BT_SEL 0    &bt BT_CLR    &none &none    &none      &none     &kp FSLH       &none
                                   &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
             >;
         };
