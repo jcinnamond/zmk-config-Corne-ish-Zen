@@ -72,10 +72,15 @@
             key-positions = <2 3>;
             bindings = <&sk LSHIFT>;
         };
-        combo_super { 
+        combo_super_shift { 
             timeout-ms = <50>;
             key-positions = <12 23>;
-            bindings = <&sk LGUI>;
+            bindings = <&sk LS(LGUI)>;
+        };
+        combo_super_ctrl {
+            timeout-ms = <50>;
+            key-positions = <12 22>;
+            bindings = <&sk LC(LGUI)>;
         };
     };
 
