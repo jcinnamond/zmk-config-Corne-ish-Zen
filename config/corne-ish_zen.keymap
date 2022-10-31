@@ -459,7 +459,7 @@
     &to BASE  &none     &td_l &td_a &td_u &none         &none &td_c &td_m &td_r &none   &none
     &td_quote &td_h     &td_o &td_i &td_e &none         &none &td_t &td_s &td_n &td_p   &key_repeat
     &none     &td_colon &none &none &none &none         &none &none &none &none &td_dot &none
-    &none &smod_light TINY_NAV SPACE &td_to_sym         &smod TINY_NUM RETURN &sl TINY_ALPHA_2 &none
+    &none &smod_light TINY_NAV SPACE &smod_light TINY_SYM TAB         &smod TINY_NUM RETURN &sl TINY_ALPHA_2 &none
             >;
         };
 
