@@ -397,10 +397,10 @@
         base_layer {
             label = "base";
             bindings = <
-   &td_lpar         &kp Q  &kp W          &kp F           &kp P                  &kp B     &kp J &kp L                   &kp U           &kp Y          &kp SQT  &td_rpar
-   &hmod LGUI ESC   &kp A  &lh_hrm LALT R &lh_hrm LCTRL S &lh_hrm_light LSHIFT T &kp G     &kp M &rh_hrm_light RSHIFT N  &rh_hrm RCTRL E &rh_hrm LALT I &kp O    &hmod LGUI EQUAL
-   &hmod RALT ASTRK &kp AT &kp X          &kp C           &kp D                  &kp V     &kp K &kp H                   &kp COMMA       &kp DOT        &kp FSLH &hmod LA(LC(LGUI)) AMPS
-                        &smod MEDIA UNDERSCORE &smod TINY_NAV SPACE &smod TINY_SYM TAB     &smod TINY_NUM RET &smod NUM BSPC &smod FUN COLON
+   &td_lpar         &kp Q  &kp W &kp F &kp P &kp B     &kp J &kp L  &kp U     &kp Y    &kp SQT  &td_rpar
+   &hmod LGUI ESC   &kp A  &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp O    &hmod LGUI EQUAL
+   &hmod RALT ASTRK &kp AT &kp X &kp C &kp D &kp V     &kp K &kp H  &kp COMMA &kp DOT  &kp FSLH &sk LA(LC(LGUI))
+                        &smod MEDIA UNDERSCORE &smod TINY_NAV SPACE &smod TINY_SYM TAB     &smod TINY_NUM RET &sk LSHIFT &smod FUN COLON
             >;
         };
         media_layer {
