@@ -10,18 +10,15 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define BASE 0
-#define MEDIA 1
-#define NAV 2
-#define BT 3
-#define NUM 4
-#define SYM 5
-#define FUN 6
+#define SHIFT 1
+#define MEDIA 2
+#define FUN 3
 
-#define TINY_NUM     9
-#define TINY_SYM     10
-#define TINY_NAV     11
-#define TINY_FN      12
-#define TINY_MEDIA   13
+#define TINY_NUM     4
+#define TINY_SYM     5
+#define TINY_NAV     6
+#define TINY_FN      7
+#define TINY_MEDIA   8
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
@@ -148,9 +145,20 @@
    &none            &kp Q     &kp W &kp F &kp P &kp B     &kp J &kp L  &kp U     &kp Y    &kp SQT  &key_repeat
    &td_quote        &kp A     &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp O    &hmod LGUI EQUAL
    &hmod RALT ASTRK &td_lpar  &kp X &kp C &kp D &kp V     &kp K &kp H  &td_colon &td_dot  &td_rpar &sk LA(LC(LGUI))
-    &sl MEDIA  &smod TINY_NAV SPACE &smod TINY_SYM TAB    &smod TINY_NUM RET &sk LSHIFT &sl FUN
+    &sl MEDIA  &smod TINY_NAV SPACE &smod TINY_SYM TAB    &smod TINY_NUM RET &sl SHIFT &sl FUN
             >;
         };
+        
+        shift_layer {
+            label = "shift";
+            bindings = <
+   &none    &kp LS(Q) &kp LS(W) &kp LS(F) &kp LS(P) &kp LS(B)     &kp LS(J) &kp LS(L)  &kp LS(U) &kp LS(Y) &kp SQT  &key_repeat
+   &kp GRAV &kp LS(A) &kp LS(R) &kp LS(S) &kp LS(T) &kp LS(G)     &kp LS(M) &kp LS(N)  &kp LS(E) &kp LS(I) &kp LS(O)    &hmod LGUI EQUAL
+   &none    &kp LBKT  &kp LS(X) &kp LS(C) &kp LS(D) &kp LS(V)     &kp LS(K) &kp LS(H)  &kp SEMI  &kp COMMA &kp RBKT &sk LA(LC(LGUI))
+           &sl MEDIA  &smod TINY_NAV SPACE &smod TINY_SYM TAB    &smod TINY_NUM RET &sk LSHIFT &sl FUN
+            >;
+        };
+
         media_layer {
             label = "media";
             bindings = <
@@ -158,42 +166,6 @@
     &none &none &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR &none       &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
     &none &none &none        &none        &none      &none       &none &none      &none        &none        &none       &none
                                         &trans &none &none       &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
-            >;
-        };
-        nav_layer {
-            label = "nav";
-            bindings = <
-    &none &none     &none &kp HOME  &kp END   &none         &none &none    &kp UP   &none     &none      &none
-    &none &none     &none &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT &td_del &none
-    &none &none     &none &none     &none     &none         &none &none    &none    &none     &kp DEL    &none
-                                  &none &none &none         &kp INS &caps_word &none
-            >;
-        };
-        bt_layer {
-            label = "bluetooth";
-            bindings = <
-    &none &none &none        &none        &none        &none          &none    &none  &kp DOLLAR &kp PIPE2  &none     &none
-    &none &none &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR     &none    &kp LT &kp MINUS  &kp GT &kp COLON &kp EQUAL
-    &none &none &none        &none        &none        &none          &none    &none  &kp ASTRK  &none  &kp LS(QUESTION)     &reset
-                        &trans &none &none        &none &to TINY_ALPHA_1 &none
-            >;
-        };
-        num_layer {
-            label = "number";
-            bindings = <
-    &none        &kp LBKT &kp N4 &kp N5 &kp N6 &kp RBKT    &none &none      &none     &none    &none &none
-    &mt LGUI ESC &kp SEMI &kp N1 &kp N2 &kp N3 &kp EQUAL   &none &kp RSHIFT &kp RCTRL &kp LALT &none &mt LGUI EQUAL
-    &kp PIPE2    &kp GRAV &kp N7 &kp N8 &kp N9 &kp NON_US_BSLH    &none &none      &none     &none    &none &none
-                                &kp DOT &kp N0 &kp MINUS                  &none &trans &none
-            >;
-        };
-        sym_layer {
-            label = "symbol";
-            bindings = <
-    &kp HASH &kp LBRC  &kp AMPS &kp ASTRK &kp LPAR &kp RBRC    &none &none      &none     &none    &none &none
-    &mt LGUI ESC    &kp COLON &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS   &none &kp RSHIFT &kp RCTRL &kp LALT &none &kp LGUI
-    &none           &kp PIPE &kp EXCL &kp AT &kp NON_US_HASH &kp PIPE2    &none &none      &none     &none    &none &none
-                                &kp LPAR &kp RPAR &kp UNDER                  &trans &none &none
             >;
         };
         fun_layer {
@@ -222,8 +194,8 @@
             bindings = <
     &to BASE &none           &kp EXCL &kp PERCENT  &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &none          &none
     &kp HASH &kp QUESTION    &kp PIPE &kp EQUAL    &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
-    &none    &kp NON_US_BSLH &none    &bt BT_SEL 1 &bt BT_SEL 0    &bt BT_CLR    &none &none    &none      &none     &kp FSLH       &none
-                                  &none &to TINY_ALPHA_1 &kp UNDERSCORE         &kp PLUS &kp MINUS &none
+    &none    &kp NON_US_BSLH &none    &none        &none           &none         &none &none    &none      &none     &kp FSLH       &none
+                                  &none &none &none         &kp PLUS &kp MINUS &none
             >;
         };
 
