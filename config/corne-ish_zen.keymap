@@ -184,8 +184,8 @@
             bindings = <
     &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &kp UNDERSCORE  &none     &none
     &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9          &kp MINUS &kp COMMA
-    &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &none           &kp PLUS  &none
-       &none &smod_light TINY_NAV SPACE &sk LCTRL         &none &kp N0 &none
+    &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &kp COLON       &kp PLUS  &none
+       &none &smod_light TINY_NAV SPACE &sk LCTRL         &none &none &none
             >;
         };
 
