@@ -145,7 +145,7 @@
    &none           &kp Q    &kp W &kp F &kp P &kp B     &kp J &kp L  &kp U     &kp Y    &kp SQT  &key_repeat
    &hmod LGUI LPAR &kp A    &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp O    &hmod LGUI RPAR
    &kp RALT        &kp LBRC &kp X &kp C &kp D &kp V     &kp K &kp H  &kp COMMA &kp DOT  &kp RBRC &sk LA(LC(LGUI))
-    &sl MEDIA &smod TINY_NAV SPACE &smod TINY_SYM TAB    &smod TINY_NUM RET &sl SHIFT &sl FUN
+        &sl MEDIA &smod TINY_NAV SPACE &sl TINY_SYM     &sl TINY_NUM  &sl SHIFT &sl FUN
             >;
         };
         
@@ -185,7 +185,7 @@
     &to BASE  &none    &kp N4 &kp N5 &kp N6 &none         &none &kp DOT &kp EQUAL &kp UNDERSCORE  &none     &none
     &kp ASTRK &kp N0   &kp N1 &kp N2 &kp N3 &none         &none &kp N7  &kp N8    &kp N9          &kp MINUS &kp COMMA
     &none     &kp FSLH &none  &none  &none  &none         &none &none   &none     &kp COLON       &kp PLUS  &none
-       &none &smod_light TINY_NAV SPACE &sk LCTRL         &none &none &none
+       &none &smod_light TINY_NAV SPACE &sk LCTRL         &kp RET &none &none
             >;
         };
 
@@ -195,7 +195,7 @@
     &to BASE &kp PIPE        &kp EXCL  &kp PERCENT  &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &kp GRAV       &none
     &kp HASH &kp QUESTION    &kp COLON &kp EQUAL    &kp PIPE2       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
     &none    &kp NON_US_BSLH &none     &none        &none           &none         &none &none    &none      &none     &kp FSLH       &none
-                                  &none &none &none         &kp PLUS &kp MINUS &none
+                                  &none &none &kp TAB         &kp PLUS &kp MINUS &none
             >;
         };
 
