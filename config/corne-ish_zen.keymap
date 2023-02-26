@@ -134,6 +134,15 @@
             bindings = <&kp>, <&kp>;
             flavor = "tap-preferred";
         };
+        bksp_hold: backspace_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BKSP HOLD";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <180>;
+            bindings = <&mo>, <&kp>;
+            flavor = "hold-preferred";
+        };
     };
 
     keymap {
@@ -145,7 +154,7 @@
    &none           &kp Q    &kp W &kp F &kp P &kp B     &kp J &kp L  &kp U     &kp Y    &kp SQT  &key_repeat
    &hmod LGUI LPAR &kp A    &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp O    &hmod LGUI RPAR
    &kp RALT        &kp LBRC &kp X &kp C &kp D &kp V     &kp K &kp H  &kp COMMA &kp DOT  &kp RBRC &sk LA(LC(LGUI))
-        &sl MEDIA &smod TINY_NAV SPACE &sl TINY_SYM     &sl TINY_NUM  &smod SHIFT BKSP &sl FUN
+        &sl MEDIA &smod TINY_NAV SPACE &sl TINY_SYM     &sl TINY_NUM  &bksp_hold SHIFT BKSP &sl FUN
             >;
         };
         
