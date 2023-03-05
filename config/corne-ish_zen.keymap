@@ -20,6 +20,9 @@
 #define FN      7
 #define MEDIA   8
 
+#define CANARY       9
+#define CANARY_SHIFT 10
+
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
 };
@@ -67,6 +70,18 @@
             timeout-ms = <50>;
             key-positions = <12 22>;
             bindings = <&sk LC(LGUI)>;
+        };
+        combo_to_canary {
+            timeout-ms = <50>;
+            key-positions = <36 41>;
+            layers = <0>;
+            bindings = <&to CANARY>;
+        };
+        combo_from_canary {
+            timeout-ms = <50>;
+            key-positions = <36 41>;
+            layers = <9>;
+            bindings = <&to BASE>;
         };
     };
 
@@ -237,5 +252,26 @@
                                         &trans &none &none       &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
             >;
         };
+        
+        canary {
+            label = "canary";
+            bindings = <
+   &none           &kp W    &kp L &kp Y &kp P &kp B     &kp Q &kp F  &kp O     &kp U    &kp SQT  &key_repeat
+   &hmod LGUI LPAR &kp C    &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp A    &hmod LGUI RPAR
+   &kp RALT        &kp LBRC &kp J &kp V &kp D &kp K     &kp X &kp H  &kp COMMA &kp DOT  &kp RBRC &sk LA(LC(LGUI))
+        &sl MEDIA &smod NAV SPACE &sl SYM     &sl NUM  &bksp_hold CANARY_SHIFT BKSP &sl FUN
+            >;
+        };
+        
+        canary_layer {
+            label = "shift";
+            bindings = <
+   &none    &kp LS(W) &kp LS(L) &kp LS(Y) &kp LS(P) &kp LS(B)     &kp LS(Q) &kp LS(F)  &kp LS(O) &kp LS(U) &kp AT    &key_repeat
+   &kp GRAV &kp LS(C) &kp LS(R) &kp LS(S) &kp LS(T) &kp LS(G)     &kp LS(M) &kp LS(N)  &kp LS(E) &kp LS(I) &kp LS(A) &kp EQUAL
+   &none    &kp LBKT  &kp LS(J) &kp LS(V) &kp LS(D) &kp LS(K)     &kp LS(X) &kp LS(H)  &kp SEMI  &kp COLON &kp RBKT  &sk LA(LC(LGUI))
+                    &sl MEDIA  &smod NAV SPACE &kp MINUS     &kp LS(RET) &sk LSHIFT &sl FUN
+            >;
+        };
+        
     };
 };
