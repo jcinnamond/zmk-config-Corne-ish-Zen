@@ -35,6 +35,12 @@
             layers = <0>;
             bindings = <&kp Z>;
         };
+        combo_shift_z {            
+            timeout-ms = <50>;            
+            key-positions = <2 3 4>;
+            layers = <0>;
+            bindings = <&kp LS(Z)>;
+        };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <8 9>;
