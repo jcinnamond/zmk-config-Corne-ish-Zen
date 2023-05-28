@@ -9,18 +9,22 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define BASE 0
-#define SHIFT 1
-#define MEDIA 2
-#define FUN 3
+#define BASE      0
+#define BASE_MAC  1
+#define SHIFT     2
+#define SHIFT_MAC 3
+#define MEDIA     4
+#define FUN       5
 
-#define NUM     4
-#define SYM     5
-#define NAV     6
-#define FN      7
+#define NUM     6
+#define SYM     7
+#define SYM_MAC 8
+#define NAV     9
+#define NAV_MAC 10
+#define FN      11
 
-#define CANARY       8
-#define CANARY_SHIFT 9
+#define CANARY       12
+#define CANARY_SHIFT 13
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
@@ -32,13 +36,13 @@
         combo_z {            
             timeout-ms = <50>;            
             key-positions = <2 3>;
-            layers = <0>;
+            layers = <0 1>;
             bindings = <&kp Z>;
         };
         combo_shift_z {            
             timeout-ms = <50>;            
             key-positions = <2 3 4>;
-            layers = <0>;
+            layers = <0 1>;
             bindings = <&kp LS(Z)>;
         };
         combo_esc {
@@ -165,6 +169,22 @@
         };
     };
 
+    macros {
+        mac_layer: mac_layer {
+            label = "mac";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&to BASE_MAC>;
+        };
+        
+        pc_layer: pc_layer {
+            label = "pc";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&to BASE>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -178,6 +198,16 @@
             >;
         };
         
+        base_layer_mac {
+            label = "base MAC";
+            bindings = <
+   &none           &kp Q    &kp W &kp F &kp P &kp B     &kp J &kp L  &kp U     &kp Y    &kp SQT  &key_repeat
+   &hmod LGUI LPAR &kp A    &kp R &kp S &kp T &kp G     &kp M &kp N  &kp E     &kp I    &kp O    &hmod LGUI RPAR
+   &kp RALT        &kp LBRC &kp X &kp C &kp D &kp V     &kp K &kp H  &kp COMMA &kp DOT  &kp RBRC &sk LA(LC(LGUI))
+        &sl MEDIA &smod NAV_MAC SPACE &sl SYM_MAC     &sl NUM  &bksp_hold SHIFT_MAC BKSP &sl FUN
+            >;
+        };
+        
         shift_layer {
             label = "shift";
             bindings = <
@@ -188,11 +218,21 @@
             >;
         };
 
+        shift_layer_mac {
+            label = "shift MAC";
+            bindings = <
+   &none    &kp LS(Q) &kp LS(W) &kp LS(F) &kp LS(P) &kp LS(B)     &kp LS(J) &kp LS(L)  &kp LS(U) &kp LS(Y) &kp AT    &key_repeat
+   &kp NON_US_BSLH &kp LS(A) &kp LS(R) &kp LS(S) &kp LS(T) &kp LS(G)     &kp LS(M) &kp LS(N)  &kp LS(E) &kp LS(I) &kp LS(O) &kp EQUAL
+   &none    &kp LBKT  &kp LS(X) &kp LS(C) &kp LS(D) &kp LS(V)     &kp LS(K) &kp LS(H)  &kp SEMI  &kp COLON &kp RBKT  &sk LA(LC(LGUI))
+                    &sl MEDIA  &smod NAV SPACE &kp MINUS     &kp LS(RET) &sk LSHIFT &sl FUN
+            >;
+        };
+
         media_layer {
             label = "media";
             bindings = <
     &none &none &none        &none        &none      &none       &none &none      &none        &none        &none       &none
-    &none &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR  &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
+    &none &bt BT_SEL 3 &mac_layer &pc_layer &bt BT_SEL 0 &bt BT_CLR  &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &none
     &none &none &none        &none        &none      &none       &none &none      &none        &none        &none       &none
                                         &trans &none &none       &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
             >;
@@ -229,11 +269,31 @@
             >;
         };
 
+        sym_mac {
+            label = "sym MAC";
+            bindings = <
+    &to BASE &kp PIPE        &kp EXCL  &kp PERCENT  &kp NON_US_HASH &none         &none &kp AMPS &kp DOLLAR &kp CARET &kp GRAV       &none
+    &kp HASH &kp QUESTION    &kp COLON &kp EQUAL    &kp TILDE       &none         &none &kp LT   &kp ASTRK  &kp GT    &kp UNDERSCORE &kp LS(SQT)
+    &none    &kp GRAV        &none     &none        &none           &none         &none &none    &none      &none     &kp FSLH       &none
+                                  &none &smod NAV SPACE &kp TAB         &kp PLUS &kp MINUS &none
+            >;
+        };
+
         nav {
             label = "nav";
             bindings = <
     &to BASE &none         &none       &kp HOME  &kp END   &none         &none &kp F12  &kp UP   &kp LC(F12) &none    &none
     &none    &kp LG(SPACE) &kp LA(TAB) &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT   &kp BKSP &none
+    &none    &none         &none       &none     &none     &none         &none &none    &none    &none       &kp DEL  &none
+                                               &none &none &none         &none &none &caps_word
+            >;
+        };
+        
+        nav_mac {
+            label = "nav MAC";
+            bindings = <
+    &to BASE &none         &none       &kp HOME  &kp END   &none         &none &kp F12  &kp UP   &kp LC(F12) &none    &none
+    &none    &kp LG(SPACE) &kp LG(TAB) &kp PG_UP &kp PG_DN &none         &none &kp LEFT &kp DOWN &kp RIGHT   &kp BKSP &none
     &none    &none         &none       &none     &none     &none         &none &none    &none    &none       &kp DEL  &none
                                                &none &none &none         &none &none &caps_word
             >;
